@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SMT Sigorta AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="logo">
+                SMT <span>SİGORTA</span>
+            </div>
+        </header>
+
+        <main class="hero">
+
+            <h1>Güvenceniz,<br>akıllı yardımcınız.</h1>
+
+            <p>
+                Sigortanız hakkında merak ettiklerinizi
+                yapay zekâ destekli asistanımıza sorun.
+            </p>
+
+            <div class="ai-box">
+
+                <h2>🤖 AI Sigorta Asistanı</h2>
+
+                <p>
+                    Poliçeniz veya sigortanız hakkında bir soru sorun.
+                </p>
+
+                <input
+                    type="text"
+                    placeholder="Örn: Poliçem neleri karşılıyor?"
+                >
+
+                <button onclick="askAI()">Gönder</button>
+<div id="ai-answer"></div>
+            </div>
+
+            <div class="features">
+
+                
+                    <div class="card">
+    <h3>📄 Poliçemi İncele</h3>
+
+    <p>
+        Poliçenizi yükleyin, AI sizin için önemli maddeleri açıklasın.
+    </p>
+
+    <input
+        type="file"
+        id="policyFile"
+        accept=".pdf"
+    >
+
+    <button onclick="analyzePolicy()">
+        Poliçeyi İncele
+    </button>
+
+    <div id="policyAnswer"></div>
+</div>
+
+
+
+                <div class="card" onclick="showContact()" style="cursor: pointer;">
+    <h3>📞 Bize Ulaşın</h3>
+    <p>
+        SMT Sigorta ile hızlıca iletişime geçin.
+    </p>
+</div>
+
+<div id="contactPanel" class="contact-panel" style="display: none;">
+    <h3>📞 İletişim Bilgileri</h3>
+
+    <div class="contact-item">
+    <strong>📞 Telefon</strong>
+    <span>+90 533 867 11 76</span>
+</div>
+
+<div class="contact-item">
+    <strong>📧 E-posta</strong>
+    <span>serdarozdemir@smtsigorta.com</span>
+</div>
+
+<div class="contact-item">
+    <strong>📍 Adres</strong>
+    <span>KKTC Girne, Atatürk Caddesi, Göksu Sokak 4C</span>
+</div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+<script>
+function showPolicyCards(text) {
+    const answerBox = document.getElementById("policyAnswer");
+
+    const sections = text.split(/\n(?=#{1,3}\s)/);
+
+    answerBox.innerHTML = "";
+
+    sections.forEach(section => {
+        const lines = section.trim().split("\n");
+
+        if (!lines.length) return;
+
+        const title = lines[0].replace(/^#{1,3}\s*/, "").trim();
+        const content = lines.slice(1).join("\n").trim();
+
+        if (!title || !content) return;
+
+        const card = document.createElement("div");
+        card.className = "policy-card";
+
+        const heading = document.createElement("h4");
+        heading.textContent = title;
+
+        const paragraph = document.createElement("p");
+        paragraph.textContent = content;
+
+        card.appendChild(heading);
+        card.appendChild(paragraph);
+
+        answerBox.appendChild(card);
+    });
+}
+</script>
+
+<script>
+
+async function askAIFromInput(input) {
+    const question = input.value.trim();
+
+    if (!question) return;
+
+    const answerBox = document.getElementById("ai-answer");
+
+    // Kullanıcının mesajı
+    const userMessage = document.createElement("div");
+    userMessage.className = "chat-message user-message";
+    userMessage.textContent = question;
+
+    answerBox.appendChild(userMessage);
+
+    // Yazıyor animasyonu
+    const aiMessage = document.createElement("div");
+    aiMessage.className = "chat-message ai-message";
+    aiMessage.innerHTML = `
+        <span class="ai-name">🤖 SMT AI</span>
+        <span class="thinking">● ● ●</span>
+    `;
+
+    answerBox.appendChild(aiMessage);
+
+    // Input'u temizle
+    input.value = "";
+
+    // En alta kaydır
+    answerBox.scrollTop = answerBox.scrollHeight;
+
+    try {
+        const response = await fetch("/ask", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                question: question
+            })
+        });
+
+        const data = await response.json();
+
+        // AI cevabını göster
+        aiMessage.innerHTML = `
+            <span class="ai-name">🤖 SMT AI</span>
+            <span class="ai-text">${data.answer}</span>
+        `;
+
+        answerBox.scrollTop = answerBox.scrollHeight;
+
+    } catch (error) {
+        aiMessage.innerHTML = `
+            <span class="ai-name">🤖 SMT AI</span>
+            <span class="ai-text">Bir hata oluştu. Lütfen tekrar deneyin.</span>
+        `;
+    }
+}
+
+function askAI() {
+    const input = document.querySelector("input");
+    askAIFromInput(input);
+}
+document.querySelector("input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        askAIFromInput(this);
+    }
+});
+async function analyzePolicy() {
+    const fileInput = document.getElementById("policyFile");
+    const answerBox = document.getElementById("policyAnswer");
+
+    if (!fileInput.files.length) {
+        answerBox.innerText = "Lütfen önce bir PDF seçin.";
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("policy", fileInput.files[0]);
+
+    answerBox.innerHTML = `
+        <span class="thinking">
+            <span></span><span></span><span></span>
+        </span>
+        <p>Poliçeniz inceleniyor...</p>
+    `;
+
+    try {
+        const response = await fetch("/analyze-policy", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+        showPolicyCards(data.answer);
+
+    } catch (error) {
+        answerBox.innerText = "Poliçe incelenirken bir hata oluştu.";
+    }
+}
+// mevcut kodların...
+
+function showContact() {
+    const panel = document.getElementById("contactPanel");
+
+    if (panel.style.display === "none") {
+        panel.style.display = "block";
+        panel.scrollIntoView({ behavior: "smooth" });
+    } else {
+        panel.style.display = "none";
+    }
+}
+</script>
+</html>

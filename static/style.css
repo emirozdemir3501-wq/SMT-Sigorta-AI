@@ -1,0 +1,718 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8f6;
+    color: #17352b;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #20a66a;
+}
+
+.hero {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #60756d;
+    margin-bottom: 30px;
+}
+
+.ai-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.ai-box input {
+    width: 70%;
+    padding: 15px;
+    border: 1px solid #d5e2dc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.ai-box button {
+    padding: 15px 25px;
+    margin-left: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #20a66a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+    margin: 15px 0 10px;
+}
+
+.card p {
+    color: #687b74;
+}
+
+@media (max-width: 700px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-box input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .ai-box button {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+.thinking {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.thinking span {
+    width: 8px;
+    height: 8px;
+    background: #27ae60;
+    border-radius: 50%;
+    animation: thinking 1.4s infinite ease-in-out;
+}
+
+.thinking span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.thinking span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes thinking {
+    0%, 60%, 100% {
+        transform: scale(0.6);
+        opacity: 0.4;
+    }
+
+    30% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+/* POLİÇE AI KARTLARI */
+
+#policyAnswer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+}
+
+.policy-card {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.policy-card h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.policy-card p {
+    margin: 0;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+/* ===== SMT SIGORTA AI - YENİ TASARIM ===== */
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: #eefcff;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(0, 255, 200, 0.16), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(60, 100, 255, 0.20), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(0, 200, 255, 0.10), transparent 35%),
+        linear-gradient(135deg, #050b16, #0a1729 50%, #07111f);
+}
+
+/* Arka plandaki hafif ışık */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(0, 255, 210, 0.06), transparent 25%),
+        radial-gradient(circle at 75% 65%, rgba(80, 120, 255, 0.07), transparent 25%);
+    z-index: -1;
+}
+
+/* Ana kartlar */
+.card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 22px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.30);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 255, 210, 0.12);
+}
+
+/* Başlık */
+h1 {
+    color: #ffffff;
+    text-shadow: 0 0 25px rgba(0, 255, 210, 0.18);
+}
+
+h1 span {
+    color: #62f5d2;
+}
+
+/* AI asistanı */
+.ai-box {
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(98, 245, 210, 0.25);
+    box-shadow: 0 0 35px rgba(0, 255, 210, 0.08);
+    backdrop-filter: blur(18px);
+}
+
+/* Inputlar */
+input[type="text"],
+input[type="file"] {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(235, 250, 255, 0.55);
+}
+
+/* Butonlar */
+button {
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #19d9aa, #0ba8d8);
+    color: #041018;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 220, 190, 0.20);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 255, 210, 0.30);
+}
+
+/* ===== POLİÇE SONUÇ KARTLARI ===== */
+
+.policy-card {
+    margin-top: 16px;
+    padding: 20px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.075);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    color: #eafaff;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.policy-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(98, 245, 210, 0.35);
+}
+
+.policy-card h4 {
+    margin: 0 0 12px;
+    color: #62f5d2;
+    font-size: 19px;
+    text-shadow: 0 0 15px rgba(98, 245, 210, 0.18);
+}
+
+.policy-card p {
+    margin: 0;
+    color: #e5f3f7;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+/* Dosya seçme alanı */
+input[type="file"] {
+    padding: 9px;
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 700px) {
+    .card {
+        border-radius: 18px;
+    }
+
+    .policy-card {
+        padding: 16px;
+    }
+}
+/* ===== AI SOHBET EKRANI ===== */
+
+.ai-box {
+    position: relative;
+    overflow: hidden;
+}
+
+#ai-answer {
+    margin-top: 20px;
+    min-height: 60px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* AI cevapları */
+#ai-answer p {
+    background: rgba(98, 245, 210, 0.10);
+    border: 1px solid rgba(98, 245, 210, 0.18);
+    border-radius: 16px 16px 16px 4px;
+    padding: 13px 16px;
+    color: #eafffa;
+    text-align: left;
+    line-height: 1.6;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* AI cevap başlığı */
+#ai-answer strong {
+    color: #62f5d2;
+}
+
+/* Kaydırma çubuğu */
+#ai-answer::-webkit-scrollbar {
+    width: 6px;
+}
+
+#ai-answer::-webkit-scrollbar-thumb {
+    background: rgba(98, 245, 210, 0.35);
+    border-radius: 10px;
+}
+
+/* AI kutusundaki input */
+.ai-box input[type="text"] {
+    width: calc(100% - 120px);
+    padding: 14px 16px;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s;
+}
+
+.ai-box input[type="text"]:focus {
+    border-color: rgba(98, 245, 210, 0.6);
+    box-shadow: 0 0 20px rgba(98, 245, 210, 0.10);
+}
+
+/* Gönder butonu */
+.ai-box button {
+    padding: 14px 22px;
+    margin-left: 6px;
+}
+/* ===== CHAT MESAJLARI ===== */
+
+#ai-answer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Genel mesaj */
+.chat-message {
+    max-width: 78%;
+    padding: 13px 16px;
+    border-radius: 18px;
+    line-height: 1.5;
+    animation: messageIn 0.25s ease;
+}
+
+/* Kullanıcı - SAĞ */
+.user-message {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #19d9aa, #0ba8d8);
+    color: #041018;
+    border-radius: 18px 18px 4px 18px;
+    font-weight: 600;
+}
+
+/* AI - SOL */
+.ai-message {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(98, 245, 210, 0.20);
+    color: #eafaff;
+    border-radius: 18px 18px 18px 4px;
+    backdrop-filter: blur(10px);
+}
+
+.ai-name {
+    display: block;
+    color: #62f5d2;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.ai-text {
+    display: block;
+    white-space: pre-line;
+}
+
+.thinking {
+    display: block;
+    letter-spacing: 4px;
+    animation: thinking 1.2s infinite;
+}
+
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes thinking {
+    0%, 100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+/* ===== AI CHAT TASARIMI ===== */
+
+#ai-answer {
+    margin-top: 20px;
+    max-height: 430px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Kullanıcının mesajı */
+.user-message {
+    margin: 12px 0 12px auto;
+    padding: 14px 18px;
+    max-width: 70%;
+    width: fit-content;
+    border-radius: 18px 18px 4px 18px;
+    background: linear-gradient(135deg, #00e5ff, #00ffc8);
+    color: #06121f;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(0, 255, 220, 0.25);
+}
+
+/* AI mesajı */
+.ai-message {
+    margin: 12px auto 12px 0;
+    padding: 18px 20px;
+    max-width: 75%;
+    border-radius: 18px 18px 18px 4px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    line-height: 1.65;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+}
+
+/* AI adı */
+
+
+/* Yeni soru kutusu */
+.chat-input {
+    width: 85%;
+    margin: 12px auto;
+    display: block;
+    padding: 13px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 255, 220, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    outline: none;
+    backdrop-filter: blur(10px);
+}
+
+.chat-input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.chat-input:focus {
+    border-color: #00ffd5;
+    box-shadow: 0 0 15px rgba(0, 255, 213, 0.25);
+}
+/* ===== CHAT BALONCUKLARI ===== */
+
+.user-message {
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 15px;
+    padding: 13px 18px;
+    max-width: 65%;
+    width: fit-content;
+    border-radius: 20px 20px 5px 20px;
+    background: linear-gradient(135deg, #00e5ff, #00ffc8);
+    color: #06202b;
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(0, 255, 220, 0.25);
+}
+
+.ai-message {
+    margin-right: auto;
+    margin-left: 10px;
+    margin-top: 15px;
+    padding: 18px 20px;
+    max-width: 72%;
+    border-radius: 20px 20px 20px 5px;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(0, 255, 220, 0.25);
+    color: white;
+    line-height: 1.6;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(12px);
+}
+
+.ai-message p {
+    margin: 0;
+}
+/* ===== DAHA DOĞAL CHAT TASARIMI ===== */
+
+.user-message {
+    text-align: left;
+    font-size: 15px;
+}
+
+.ai-message {
+    text-align: left;
+    font-size: 15px;
+    max-width: 68%;
+    padding: 16px 18px;
+}
+
+.ai-message p {
+    text-align: left;
+}
+
+#ai-answer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+/* ===== PROFESYONEL AI SOHBET ===== */
+
+.ai-message {
+    max-width: 75%;
+    margin: 18px 0 18px 0;
+    padding: 18px 22px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(12px);
+    color: white;
+    line-height: 1.65;
+    animation: messageIn 0.35s ease;
+}
+
+.ai-message strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #5fffe0;
+    font-size: 16px;
+}
+
+.user-message {
+    max-width: 65%;
+    margin: 18px 0 18px auto;
+    padding: 14px 20px;
+    border-radius: 20px 20px 6px 20px;
+    background: linear-gradient(135deg, #19e6d0, #36a9ff);
+    color: white;
+    box-shadow: 0 8px 25px rgba(0, 200, 255, 0.25);
+    animation: messageIn 0.35s ease;
+}
+
+.chat-input {
+    transition: 0.25s ease;
+}
+
+.chat-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 255, 220, 0.25);
+}
+
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ===== HASAR BİLDİRİM FORMU ===== */
+
+#claimForm {
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.20);
+}
+
+#claimForm h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#claimForm input,
+#claimForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 17px;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+#claimForm input {
+    height: 52px;
+}
+
+#claimForm textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#claimForm input:focus,
+#claimForm textarea:focus {
+    border-color: #5fffe0;
+    box-shadow: 0 0 20px rgba(0, 255, 220, 0.20);
+    transform: translateY(-2px);
+}
+
+#claimForm input::placeholder,
+#claimForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+#claimForm button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #19e6d0, #36a9ff);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#claimForm button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 200, 255, 0.30);
+}
+
+#claimResult {
+    margin-top: 15px;
+    color: #5fffe0;
+    font-size: 16px;
+}
