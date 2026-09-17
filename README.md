@@ -1,0 +1,1 @@
+This project is an AI-powered website developed using Python and JavaScript for the SMT Insurance agency in Cyprus. It was coded by a 7th-grade student who aims to study computer engineering at RWTH Aachen in the future.
